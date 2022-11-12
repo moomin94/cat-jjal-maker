@@ -122,14 +122,16 @@
     }
 
     const App = () => {
+      const EMPTY_HEART = "🤍";
+      const FULL_HEART = "💖";
       const [counter, setCounter] = React.useState(jsonLocalStorage.getItem('counter') || 1);
       const [catImg, setCatImg] = React.useState('https://cataas.com/cat/says/react');
       const [heartState, setHeartState] = React.useState(false);
-      const [heart, setHeart] = React.useState('🤍')
+      const [heart, setHeart] = React.useState(EMPTY_HEART)
       const [favorites, setFavorites] = React.useState(jsonLocalStorage.getItem('favorites') || []);
 
       function updateMainCat(value) {
-        setHeart('🤍');
+        setHeart(EMPTY_HEART);
         setHeartState(false);
         setCatImg('https://cataas.com/cat/says/' + value);
         let nextCounter = counter + 1;
@@ -142,11 +144,11 @@
         {
           !heartState
             ? function () {
-              setHeart('💘');
+              setHeart(FULL_HEART);
               setFavorites([...favorites, catImg]);
             }()
             : function () {
-              setHeart('🤍');
+              setHeart(EMPTY_HEART);
               favorites.pop();
               setFavorites(favorites);
             }()

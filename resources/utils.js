@@ -1,5 +1,3 @@
-const EMPTY_HEART = "🤍";
-const FULL_HEART = "💖";
 
 const CAT1 = "https://cataas.com/cat/says/react";
 const CAT2 = "https://cataas.com//cat/says/inflearn";
